@@ -47,7 +47,7 @@ function Navber () {
     };
 
     return (
-        <AppBar position="fixed" style={{ backgroundColor: '#ffadc6' }}>
+        <AppBar position="" style={{ backgroundColor: '#ffadc6' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

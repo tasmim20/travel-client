@@ -45,7 +45,11 @@ const Login = () => {
     return (
         <div>
            <Box sx={{display:'flex', alignItems:'center', justifyContent:'center', height:'100vh'}}>
-            <Box sx={{width:{md:"20rem", xs:'auto'}}}>
+            <Box sx={{
+                width: { md: 345, xs: 1 },
+                mx: { md: 0, xs: 2 },
+
+            }}>
                 <Box  component='form'
                     onSubmit={handleSubmit(handleLogin)}
                     sx={{ backgroundColor: '#f8bbd0', px: 3, py: 5 }}>

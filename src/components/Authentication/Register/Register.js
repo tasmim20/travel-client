@@ -9,7 +9,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Register = () => {
     const { register, handleSubmit,watch} = useForm();
-    const {createUser, updateUser} = useContext(AuthContext);
+    const {createUser, updateUser, saveUser} = useContext(AuthContext);
     const [ signUpError, setSignUpError] = useState('');
     const handleRegister = (data)=>{
         console.log(data);
@@ -22,6 +22,9 @@ const Register = () => {
             const userInfo = {
                 displayName: data.name
             }
+            saveUser(data)
+            .then(res => console.log(res.data))
+
             updateUser(userInfo)
             .then(()=>{})
             .catch(error => console.log(error))
@@ -30,13 +33,19 @@ const Register = () => {
             console.log(error)
             setSignUpError(error.message);
         })
+        
     }
+    
 
   console.log(watch("example"));
     return (
         <div>
            <Box sx={{display:'flex', alignItems:'center', justifyContent:'center', height:'100vh'}}>
-            <Box sx={{width:{md:"20rem", xs:'auto'}}}>
+            <Box sx={{
+                width: { md: 345, xs: 1 },
+                mx: { md: 0, xs: 2 },
+
+            }}>
                 <Box  component='form'
                     onSubmit={handleSubmit(handleRegister)}
                     sx={{ backgroundColor: '#f8bbd0', px: 3, py: 5 }}>
